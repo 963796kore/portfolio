@@ -1,0 +1,18 @@
+*{
+    margin:100;
+    padding: 100;
+  
+}
+body
+{
+    text-align:justify;
+}
+img {
+    border-radius: 50%;
+    display: block;
+    bottom:  90px;
+    position: relative;
+    width: 270px;
+    
+  
+  }
