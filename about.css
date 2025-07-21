@@ -1,0 +1,83 @@
+
+
+.glitch-wrapper {
+   width: 85%;
+   height: 15%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+  
+}
+
+.glitch {
+   position: relative;
+   font-size: 30px;
+   font-weight: bold;
+  
+   letter-spacing: 3px;
+   z-index: 1;
+}
+
+.glitch:before,
+.glitch:after {
+   display: block;
+   content: attr(data-text);
+   position: absolute;
+   top: 0;
+   left: 0;
+   opacity: 0.8;
+}
+
+.glitch:before {
+   animation: glitch-it 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+   color: #1b1819;
+   z-index: -1;
+}
+
+.glitch:after {
+   animation: glitch-it 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+   color: #1f1d1f;
+   z-index: -2;
+}
+
+@keyframes glitch-it {
+   0% {
+      transform: translate(0);
+   }
+   20% {
+      transform: translate(-2px, 2px);
+   }
+   40% {
+      transform: translate(-2px, -2px);
+   }
+   60% {
+      transform: translate(2px, 2px);
+   }
+   80% {
+      transform: translate(2px, -2px);
+   }
+   to {
+      transform: translate(0);
+   }
+}
+h3{
+    text-decoration: firebrick;
+    color: maroon;
+    
+}
+body{
+    background-color: gray;
+    
+    background-size: cover;
+    color: white;
+    font-size: large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    
+}
+div{
+    align-items: center;
+   
+    color: black;
+}
