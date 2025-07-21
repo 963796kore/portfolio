@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <form method="POST">
+    <div class="container">
+      <h1>Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+
+      <label for="psw-repeat"><b>Confirm Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="pswr" required>
+
+      <label>
+        <input type="checkbox" checked style="margin-bottom:15px"> Remember me
+      </label>
+
+      <div class="clearfix">
+        <button type="reset" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn" name="sb">Sign Up</button>
+      </div>
+    </div>
+  </form>
+
+  <?php
+  if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sb'])) {
+      $con = mysqli_connect('localhost', 'root', '', 'register');
+
+      if (!$con) {
+          die("Connection failed: " . mysqli_connect_error());
+      }
+
+      $email = mysqli_real_escape_string($con, $_POST['email']);
+      $password = $_POST['psw'];
+      $confirmpassword = $_POST['pswr'];
+
+      if ($password !== $confirmpassword) {
+          echo "<p style='color:red;'>Passwords do not match.</p>";
+      } else {
+          $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+          $query = "INSERT INTO push (email, password, confirmpassword) VALUES ('$email', '$hashedPassword', '$hashedPassword')";
+          if (mysqli_query($con, $query)) {
+              echo "<p style='color:green;'>Account created successfully.</p>";
+          } else {
+              echo "<p style='color:red;'>Error: " . mysqli_error($con) . "</p>";
+          }
+      }
+
+     
+
+  }
+  ?>
+</body>
+</html>
