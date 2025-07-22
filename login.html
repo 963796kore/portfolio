@@ -47,8 +47,7 @@
 
       if ($password !== $confirmpassword) {
           echo "<p style='color:red;'>Passwords do not match.</p>";
-      } else {
-          $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+      } 
 
           $query = "INSERT INTO push (email, password, confirmpassword) VALUES ('$email', '$hashedPassword', '$hashedPassword')";
 
