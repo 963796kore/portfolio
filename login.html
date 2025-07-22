@@ -51,12 +51,6 @@
           $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
           $query = "INSERT INTO push (email, password, confirmpassword) VALUES ('$email', '$hashedPassword', '$hashedPassword')";
-          if (mysqli_query($con, $query)) {
-              echo "<p style='color:green;'>Account created successfully.</p>";
-          } else {
-              echo "<p style='color:red;'>Error: " . mysqli_error($con) . "</p>";
-          }
-      }
 
      
 
