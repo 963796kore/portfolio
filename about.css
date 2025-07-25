@@ -1,83 +1,106 @@
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #f0f0f0;
+    padding: 30px;
+    line-height: 1.7;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #444;
+    margin: 40px 0;
+}
+
 
 .glitch-wrapper {
-   width: 85%;
-   height: 15%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   text-align: center;
-  
+    margin-bottom: 20px;
 }
 
 .glitch {
-   position: relative;
-   font-size: 30px;
-   font-weight: bold;
-  
-   letter-spacing: 3px;
-   z-index: 1;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #fff;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: flicker 2s infinite;
+    text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
 }
 
-.glitch:before,
-.glitch:after {
-   display: block;
-   content: attr(data-text);
-   position: absolute;
-   top: 0;
-   left: 0;
-   opacity: 0.8;
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
 }
 
-.glitch:before {
-   animation: glitch-it 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-   color: #1b1819;
-   z-index: -1;
+
+b {
+    font-size: 1.3rem;
+    color: #ffdd57;
 }
 
-.glitch:after {
-   animation: glitch-it 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
-   color: #1f1d1f;
-   z-index: -2;
+p {
+    font-size: 1.05rem;
+    margin-bottom: 15px;
 }
 
-@keyframes glitch-it {
-   0% {
-      transform: translate(0);
-   }
-   20% {
-      transform: translate(-2px, 2px);
-   }
-   40% {
-      transform: translate(-2px, -2px);
-   }
-   60% {
-      transform: translate(2px, 2px);
-   }
-   80% {
-      transform: translate(2px, -2px);
-   }
-   to {
-      transform: translate(0);
-   }
+p[style] {
+    color: #00ffc8;
 }
-h3{
-    text-decoration: firebrick;
-    color: maroon;
-    
+
+
+button {
+    background: #ff416c;
+    background: linear-gradient(to right, #ff4b2b, #ff416c);
+    border: none;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 30px;
+    margin: 10px 0;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
 }
-body{
-    background-color: gray;
-    
-    background-size: cover;
-    color: white;
-    font-size: large;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    text-align: center;
-    
+
+button:hover {
+    background: linear-gradient(to right, #00c9ff, #92fe9d);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 255, 200, 0.3);
 }
-div{
-    align-items: center;
-   
-    color: black;
+
+
+img {
+    margin-right: 15px;
+    transition: 0.3s ease;
+    border-radius: 8px;
+}
+
+img:hover {
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: 0 0 10px #00c9ff;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+
+@media screen and (max-width: 600px) {
+    .glitch {
+        font-size: 1.8rem;
+    }
+
+    button {
+        width: 100%;
+    }
 }
