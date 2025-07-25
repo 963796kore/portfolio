@@ -1,4 +1,4 @@
-/* General Reset */
+
 * {
     margin: 0;
     padding: 0;
@@ -11,7 +11,7 @@ body {
     padding: 20px;
 }
 
-/* App Layout */
+
 .app-container {
     max-width: 800px;
     margin: auto;
@@ -29,7 +29,7 @@ body {
     margin-bottom: 1.5em;
 }
 
-/* Search Box */
+
 .search-container {
     display: flex;
     justify-content: center;
@@ -59,7 +59,7 @@ button:hover {
     background-color: #2980b9;
 }
 
-/* Weather Containers */
+
 .weather-container {
     display: flex;
     flex-direction: column;
@@ -67,7 +67,7 @@ button:hover {
     gap: 2em;
 }
 
-/* Current Weather */
+
 .current-weather {
     display: flex;
     align-items: center;
@@ -85,7 +85,7 @@ button:hover {
     font-size: 1.5rem;
 }
 
-/* Forecast */
+
 .forecast {
     display: flex;
     justify-content: space-around;
@@ -105,7 +105,7 @@ button:hover {
     width: 50px;
 }
 
-/* Backgrounds */
+
 body.clear {
     background-color: #ffeaa7;
 }
@@ -126,7 +126,7 @@ body.default {
     background-color: #f0f0f0;
 }
 
-/* Responsive */
+
 @media (max-width: 600px) {
     .forecast {
         flex-direction: column;
