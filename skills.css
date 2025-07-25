@@ -1,84 +1,96 @@
-*.glitch-wrapper {
-   width: 85%;
-   height: 15%;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   text-align: center;
-  
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fdf6e3;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
-.glitch {
-   position: relative;
-   font-size: 30px;
-   font-weight: bold;
-  
-   letter-spacing: 3px;
-   z-index: 1;
+p {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 30px 0 10px;
 }
 
-.glitch:before,
-.glitch:after {
-   display: block;
-   content: attr(data-text);
-   position: absolute;
-   top: 0;
-   left: 0;
-   opacity: 0.8;
-}
-
-.glitch:before {
-   animation: glitch-it 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-   color: #1b1819;
-   z-index: -1;
-}
-
-.glitch:after {
-   animation: glitch-it 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
-   color: #1f1d1f;
-   z-index: -2;
-}
-
-@keyframes glitch-it {
-   0% {
-      transform: translate(0);
-   }
-   20% {
-      transform: translate(-2px, 2px);
-   }
-   40% {
-      transform: translate(-2px, -2px);
-   }
-   60% {
-      transform: translate(2px, 2px);
-   }
-   80% {
-      transform: translate(2px, -2px);
-   }
-   to {
-      transform: translate(0);
-   }
-} 
-
-{box-sizing:border-box}
 
 .container {
-  width: 100%; 
-  background-color: #ddd;
+  width: 80%;
+  background-color: #e0e0e0;
+  border-radius: 25px;
+  margin: 0 auto 20px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
 }
 
 .skills {
-  text-align: right; 
-  padding-top: 10px; 
-  padding-bottom: 10px; 
-  color: white; 
+  text-align: right;
+  padding: 12px;
+  color: white;
+  font-weight: bold;
+  border-radius: 25px;
+  transition: width 1s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
-.html {width: 90%; background-color: #04AA6D;} 
-.css {width: 80%; background-color: #2196F3;} 
-.js {width: 65%; background-color: #f44336;} 
-.SQL{width: 85%; background-color: #808080;} 
-.msoffice{width: 90%; background-color: #04AA6D;}
-.python {width: 75%; background-color: #04AA6D;}
-.github {width: 80%; background-color: #2196F3;}
-.bootstrap {width: 70%; background-color: #f321ad;}
+.html       { width: 90%; background: linear-gradient(45deg, #f16529, #e44d26); }
+.css        { width: 80%; background: linear-gradient(45deg, #2965f1, #264de4); }
+.js         { width: 65%; background: linear-gradient(45deg, #f0db4f, #e5c300); color: #000; }
+.SQL        { width: 85%; background: linear-gradient(45deg, #00758f, #00a6ce); }
+.msoffice   { width: 90%; background: linear-gradient(45deg, #f25022, #d83b01); }
+.python     { width: 75%; background: linear-gradient(45deg, #306998, #4B8BBE); }
+.github     { width: 80%; background: linear-gradient(45deg, #333, #6e5494); }
+.bootstrap  { width: 70%; background: linear-gradient(45deg, #563d7c, #7952b3); }
+
+.glitch-wrapper {
+  margin-top: 60px;
+}
+
+.glitch {
+  font-size: 28px;
+  color: #fff;
+  background: #000;
+  display: inline-block;
+  padding: 20px 40px;
+  position: relative;
+  overflow: hidden;
+  animation: glitch 1s infinite;
+  font-family: monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 10px;
+}
+
+
+@keyframes glitch {
+  0% {
+    clip-path: inset(0 0 0 0);
+    transform: translate(0);
+  }
+  20% {
+    clip-path: inset(10% 0 90% 0);
+    transform: translate(-5px, -3px);
+  }
+  40% {
+    clip-path: inset(85% 0 5% 0);
+    transform: translate(5px, 3px);
+  }
+  60% {
+    clip-path: inset(25% 0 65% 0);
+    transform: translate(-3px, 2px);
+  }
+  80% {
+    clip-path: inset(45% 0 45% 0);
+    transform: translate(3px, -2px);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    transform: translate(0);
+  }
+  .skills:hover {
+  filter: brightness(1.1);
+  transform: scale(1.02);
+  cursor: pointer;
+}
+
+}
