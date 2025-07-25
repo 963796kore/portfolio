@@ -97,12 +97,12 @@ body {
 }
 
 .images {
-    flex: 1 1 300px;
+    flex: 1 1 250px;
     text-align: center;
 }
 
 .images .me {
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
     
 }
