@@ -1,121 +1,44 @@
+input[type=text], select, textarea {
+    width: 100%; 
+    padding: 12px;  
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 6px; 
+    margin-bottom: 16px; 
+    resize: vertical 
+  }
+  
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4faff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-   
-}
-
-
-.container {
-    background-color: #ffffff;
-    padding: 30px 40px;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
-    width: 100%;
-    max-width: 600px;
-}
-
-
-label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #333;
-}
-
-
-input[type="text"],
-input[type="email"],
-select,
-textarea {
-    width: 100%;
-    padding: 10px 12px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
-    transition: 0.3s;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-    border-color: #00bcd4;
-    outline: none;
-    box-shadow: 0 0 6px rgba(0, 188, 212, 0.2);
-}
-
-
-textarea {
-    resize: vertical;
-}
-
-
-button[type="submit"] {
-    background-color: #00bcd4;
+  input[type=submit] {
+    background-color: #04AA6D;
     color: white;
-    padding: 12px;
-    width: 100%;
+    padding: 12px 20px;
     border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: bold;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
-}
+  }
+  
 
-button[type="submit"]:hover {
-    background-color: #0097a7;
-}
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+  
 
+  .container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  button{
+    background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  font-size: larger;
 
-@media (max-width: 768px) {
-    .container {
-        padding: 25px 30px;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    select,
-    textarea {
-        font-size: 15px;
-    }
-
-    button[type="submit"] {
-        font-size: 15px;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 20px;
-    }
-
-    label {
-        font-size: 14px;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    select,
-    textarea {
-        font-size: 14px;
-        padding: 9px;
-    }
-
-    button[type="submit"] {
-        font-size: 14px;
-        padding: 10px;
-    }
-}
+  }
