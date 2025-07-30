@@ -1,7 +1,5 @@
 
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <form action="" method="POST">
+        <form method="POST">
             <label for="fname">First Name :</label>
             <input type="text" id="fname" name="firstname" placeholder="Your name.." required> <br><br>
 
@@ -24,18 +22,12 @@
             <label for="state">State :</label>
             <select id="state" name="state" required>
                 <option value="">--Select a state--</option>
-                  <option value="Andhra Pradesh">Andhra Pradesh</option>
-                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                <option value="Assam">Assam</option>
-                <option value="Bihar">Bihar</option>
-                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Maharashtra">Maharashtra</option>
                 <option value="Goa">Goa</option>
                 <option value="Gujarat">Gujarat</option>
-                <option value="Haryana">Haryana</option>
-                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                <option value="Jharkhand">Jharkhand</option>
+                <option value="Delhi">Delhi</option>
                 <option value="Karnataka">Karnataka</option>
-                <option value="Kerala">Kerala</option>
+                  <option value="Kerala">Kerala</option>
                 <option value="Madhya Pradesh">Madhya Pradesh</option>
                 <option value="Maharashtra">Maharashtra</option>
                 <option value="Manipur">Manipur</option>
@@ -60,10 +52,6 @@
                 <option value="Ladakh">Ladakh</option>
                 <option value="Lakshadweep">Lakshadweep</option>
                 <option value="Puducherry">Puducherry</option>
- 
-                <option value="Maharashtra">Maharashtra</option>
-                <option value="Karnataka">Karnataka</option>
-
             </select> <br><br>
 
             <label for="subject">Subject :</label>
@@ -73,31 +61,34 @@
         </form>
     </div>
 
-    <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sb'])) {
-        $con = mysqli_connect('localhost', 'root', '', 'register2');
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sb'])) {
+    // ✅ Database Connection
+    $con = mysqli_connect('localhost', 'root', '', 'register2');
 
-        if (!$con) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
-
-        $firstname = mysqli_real_escape_string($con, $_POST['firstname']);
-        $lastname = mysqli_real_escape_string($con, $_POST['lastname']);
-        $email = mysqli_real_escape_string($con, $_POST['email']);
-        $state = mysqli_real_escape_string($con, $_POST['state']);
-        $subject = mysqli_real_escape_string($con, $_POST['subject']);
-
-        $query = "INSERT INTO contacts (firstname, lastname, email, state, subject) 
-                  VALUES ('$firstname', '$lastname', '$email', '$state', '$subject')";
-
-        if (mysqli_query($con, $query)) {
-            echo "<p style='color:green;'>Thanks! Your message has been received.</p>";
-        } else {
-            echo "<p style='color:red;'>Error: " . mysqli_error($con) . "</p>";
-        }
-
-        mysqli_close($con);
+    if (!$con) {
+        die("Database connection failed: " . mysqli_connect_error());
     }
-    ?>
+
+    // ✅ Data Securely Store
+    $firstname = mysqli_real_escape_string($con, $_POST['firstname']);
+    $lastname = mysqli_real_escape_string($con, $_POST['lastname']);
+    $email = mysqli_real_escape_string($con, $_POST['email']);
+    $state = mysqli_real_escape_string($con, $_POST['state']);
+    $subject = mysqli_real_escape_string($con, $_POST['subject']);
+
+    // ✅ Insert Query
+    $query = "INSERT INTO contacts (firstname, lastname, email, state, subject) 
+              VALUES ('$firstname', '$lastname', '$email', '$state', '$subject')";
+
+    if (mysqli_query($con, $query)) {
+        echo "<p style='color:green;'>✅ Form submitted successfully!</p>";
+    } else {
+        echo "<p style='color:red;'>❌ Error: " . mysqli_error($con) . "</p>";
+    }
+
+    mysqli_close($con);
+}
+?>
 </body>
 </html>
