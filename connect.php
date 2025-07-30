@@ -9,7 +9,9 @@
 </head>
 <body>
     <div class="container">
-        <form method="POST">
+     
+            <form method="POST" action="connect.php">
+
             <label for="fname">First Name :</label>
             <input type="text" id="fname" name="firstname" placeholder="Your name.." required> <br><br>
 
