@@ -29,10 +29,32 @@
                 <p>"Aspiring Graphic Designer"& Passionate In Software Developing" </p>
                 <a class="btn" href="login.html" target="_blank">View CV</a>
             </div>
-            <div class="images">
-               
-               <img src="image.png" alt="Chandrakant" class="me" />
-            </div>
+                     <div class="images">
+  <img src="image.png" alt="Chandrakant" class="me" />
+</div>
+
+<style>
+.images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.images .me {
+  width: 200px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.images .me:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+</style>
         </section>
     </header>
 
