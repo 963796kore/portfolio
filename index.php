@@ -3,16 +3,16 @@ session_start();
 include('includes/config.php');
 if(isset($_POST['login']))
 {
-$email=$_POST['email'];
+$emailreg=$_POST['emailreg'];
 $password=$_POST['password'];
-$stmt=$mysqli->prepare("SELECT email,password,id FROM userregistration WHERE email=? and password=? ");
-				$stmt->bind_param('ss',$email,$password);
+$stmt=$mysqli->prepare("SELECT email,password,id FROM userregistration WHERE (email=? || regNo=?) and password=? ");
+				$stmt->bind_param('sss',$emailreg,$emailreg,$password);
 				$stmt->execute();
 				$stmt -> bind_result($email,$password,$id);
 				$rs=$stmt->fetch();
 				$stmt->close();
 				$_SESSION['id']=$id;
-				$_SESSION['login']=$email;
+				$_SESSION['login']=$emailreg;
 				$uip=$_SERVER['REMOTE_ADDR'];
 				$ldate=date('d/m/Y h:i:s', time());
 				if($rs)
@@ -90,18 +90,18 @@ return true;
 							<div class="col-md-8 col-md-offset-2">
 							
 								<form action="" class="mt" method="post">
-									<label for="" class="text-uppercase text-sm">Email</label>
-									<input type="text" placeholder="Email" name="email" class="form-control mb">
+									<label for="" class="text-uppercase text-sm">Email / Registration Number</label>
+									<input type="text" placeholder="Email / Registration Number" name="emailreg" class="form-control mb" required="true">
 									<label for="" class="text-uppercase text-sm">Password</label>
-									<input type="password" placeholder="Password" name="password" class="form-control mb">
+									<input type="password" placeholder="Password" name="password" class="form-control mb" required="true">
 									
 
 									<input type="submit" name="login" class="btn btn-primary btn-block" value="login" >
 								</form>
 							</div>
 						</div>
-						<div class="text-center text-light">
-							<a href="forgot-password.php" class="text-light">Forgot password?</a>
+						<div class="text-center text-light" style="color:black;">
+							<a href="forgot-password.php" style="color:black;">Forgot password?</a>
 						</div>
 					</div>
 				</div>
