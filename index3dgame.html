@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>3D Car Drive</title>
+  <link rel="stylesheet" href="index3d.css" />
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    canvas {
+      display: block;
+    }
+    #scoreDiv {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: white;
+      font-size: 24px;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+<div id="scoreDiv">
+  <span id="score">0</span>
+  <img src="C:\Users\chand\Desktop\Lectures\coin.png" id="cn" width="24" />
+</div>
+
+<div class="gameHome" id="startPage">
+  <div id="gameTitle">3D Car Drive</div>
+  <button id="playBtn" onclick="ld()">
+    <span style="font-size:18px">Loading Assets<br>Please Wait...<br>This may take a few seconds for first time</span>
+  </button><br>
+  <div id="ldc"><div id="loading">Loading...</div></div>
+  <p>
+    Rotate your phone & tilt left/right or tap left/right side of screen to move the car<br>
+    Use left/right arrow key on your PC
+  </p>
+  <br>
+<p style="color: red;"><b><u>CURRENTELY WORKING ON THAT GAME-PROJECT</b></u></p>
+</div>
+
+
+
+<div id="mainContainer" style="display:none; background:#0f0; position:relative;">
+  <canvas id="myCanvas"></canvas>
+  <img id="city" src="C:\Users\chand\Desktop\Lectures\cty.jpg" style="display:none;" />
+</div>
+
+<!-- Assets -->
+<img class="aImg" id="t1" src="C:\Users\chand\Desktop\Lectures\t1.png" style="display:none;">
+<img class="aImg" id="t2" src="C:\Users\chand\Desktop\Lectures\t2.png" style="display:none;">
+<img class="aImg" id="t3" src="C:\Users\chand\Desktop\Lectures\t5.png" style="display:none;">
+<img class="aImg" id="t4" src="C:\Users\chand\Desktop\Lectures\t4.png" style="display:none;">
+<img class="aImg" id="c1" src="C:\Users\chand\Desktop\Lectures\c2.png" style="display:none;">
+
+
+<script>
+  (() => {
+    "use strict";
+    const hw = window.innerWidth || 360;
+    const hh = window.innerHeight || 560;
+    const gameHome = document.getElementById("startPage");
+    const scoreDiv = document.getElementById("scoreDiv");
+
+    if (hh > hw) {
+      gameHome.style.height = hw + "px";
+      gameHome.style.width = hh + "px";
+      gameHome.style.transform = `translateX(${hw}px) rotate(90deg)`;
+      scoreDiv.style.bottom = 0;
+      scoreDiv.style.transform = "rotate(90deg) translateX(40px)";
+    }
+  })();
+
+  let ld;
+  let loaded = false;
+
+  function done() {
+    document.getElementById("ldc").innerHTML = "";
+    document.getElementById("ldc").style.display = "none";
+    document.getElementById("playBtn").innerHTML = "PLAY";
+    loaded = true;
+  }
+
+  (() => {
+    const w = window.innerWidth || 360;
+    const h = window.innerHeight || 560;
+    const canvas = document.getElementById("myCanvas");
+    const mainContainer = document.getElementById("mainContainer");
+
+    if (h > w) {
+      let nh = h;
+      h = w;
+      w = nh;
+      mainContainer.style.transform = `translateX(${h}px) rotate(90deg)`;
+    }
+
+    canvas.width = w;
+    canvas.height = h;
+
+    const ctx = canvas.getContext("2d");
+    done(); // pretend assets are loaded for now
+
+    ld = function () {
+      if (loaded) {
+        document.getElementById("startPage").style.display = "none";
+        document.getElementById("mainContainer").style.display = "block";
+        ctx.fillStyle = "#000";
+        ctx.fillRect(0, 0, w, h);
+        ctx.fillStyle = "#FFF";
+        ctx.font = "30px Arial";
+        ctx.fillText("Game Loaded!", w / 4, h / 2);
+      }
+    };
+  })();
+</script>
+</body>
+</html>
