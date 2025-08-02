@@ -54,7 +54,7 @@ p {
   padding: 20px 40px;
   position: relative;
   overflow: hidden;
-  animation: glitch 1s infinite;
+  animation: glitch 5s infinite;
   font-family: monospace;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -94,3 +94,4 @@ p {
 }
 
 }
+
